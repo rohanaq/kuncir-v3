@@ -3,31 +3,16 @@
 	session_start();
 	$_SESSION['message'] = '';
 
+//    mysql real_escale_string = Escape special character in a string for use in an SQL statement
 	$nama = $mysqli->real_escape_string($_POST['nama']);
 	$nrp = $mysqli->real_escape_string($_POST['nrp']);
 	$pin = $mysqli->real_escape_string($_POST['pin']);
 	$nohp = $mysqli->real_escape_string($_POST['nohp']);
 	$angkatan = $mysqli->real_escape_string($_POST['angkatan']);
-	
-	if (empty($_POST='nama') || empty($_POST='nrp') || empty($_POST='pin') || empty($_POST='nohp') || empty($_POST='angkatan')) {
-		if(empty($_POST='name')) {
-			echo "A";
-		}
-		if(empty($_POST='nrp')) {
-			echo "B";
-		}
-		if(empty($_POST='pin')) {
-			echo "C";
-		}
-		if(empty($_POST='nohp')) {
-			echo "D";
-		}
-		if(empty($_POST='angkatan')) {
-			echo "E";
-		}
-	}
 
+//	memasukkan data registrasi
 	$sql = "INSERT INTO peminjam_terdaftar_v3 (nama, nrp, pin, nohp, angkatan)"."VALUES('$nama', '$nrp', '$pin', '$nohp', '$angkatan')";
+//	jika query $sql bernilai benar (terisi semua), maka diarahkan ke laman index.php. jika tidak akan dikembalikan kembali ke nambah.php
 	if ($mysqli->query($sql) ===  true) {
 		header("location: index.php");
 	}
