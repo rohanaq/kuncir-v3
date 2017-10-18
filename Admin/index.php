@@ -21,35 +21,34 @@
 			height: 100%;
 		}
 		body{
-		    background: #2980b9 url('img/bg.pn  g') repeat 0 0;
+		    background: #2980b9 url('img/bg.png') repeat 0 0;
 			-webkit-animation: 10s linear 0s normal none infinite animate;
 			-moz-animation: 10s linear 0s normal none infinite animate;
 			-ms-animation: 10s linear 0s normal none infinite animate;
 			-o-animation: 10s linear 0s normal none infinite animate;
 			animation: 10s linear 0s normal none infinite animate;
-		 
+
 		}
-		 
 		@-webkit-keyframes animate {
 			from {background-position:0 0;}
 			to {background-position: 500px 0;}
 		}
-		 
+
 		@-moz-keyframes animate {
 			from {background-position:0 0;}
 			to {background-position: 500px 0;}
 		}
-		 
+
 		@-ms-keyframes animate {
 			from {background-position:0 0;}
 			to {background-position: 500px 0;}
 		}
-		 
+
 		@-o-keyframes animate {
 			from {background-position:0 0;}
 			to {background-position: 500px 0;}
 		}
-		 
+
 		@keyframes animate {
 			from {background-position:0 0;}
 			to {background-position: 500px 0;}

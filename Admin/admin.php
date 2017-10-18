@@ -1,15 +1,10 @@
 <?php
 //including the database connection file
-include_once("config.php");
+    include_once("config.php");
 
-//fetching data in descending order (lastest entry first)
-//$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
-$result = mysqli_query($mysqli, "SELECT * FROM peminjam_v3 ORDER BY id ASC"); // using mysqli_query instead
-?>
-
-<?php 
 	session_start();
-	if(($_SESSION['nama'])!='admin')
+//	jika bukan login dengan user admin maka web diarahkan ke index.php
+	if(($_SESSION['nama'])!='admin' and $_SESSION['nrp']!='123')
 	{
     	header("Location: index.php");
     	die;
@@ -19,7 +14,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM peminjam_v3 ORDER BY id ASC"); //
 <head>	
 	<title>Surga Duniawi</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 	<style type="text/css" media="all">
 		.log{
 			text-align:center; 
@@ -34,16 +29,19 @@ $result = mysqli_query($mysqli, "SELECT * FROM peminjam_v3 ORDER BY id ASC"); //
 </head>
 
 <body>
+<!--navigation bar-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="index.php">KUNCIR</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 	</nav>
+<!--end of navigation bar-->
 	<h1 class="text-center display-2"><b>LOGS</b></h1>
 	<h5 align="center"><b>Last Updated: </b></h5>
 	<h5 id="lastModified" align="center"><b></b></h5>
 	<center>
+<!--        tabel log-->
 		<table class="table table-responsive log">
 			<thead>
 				<tr>
@@ -74,22 +72,24 @@ $result = mysqli_query($mysqli, "SELECT * FROM peminjam_v3 ORDER BY id ASC"); //
 				?>
 			</tbody>
 		</table>
+<!--        end of table logs-->
 	</center>
 	<br>
 	<center>
-		<!-- <a href="nambah.php">
-			<button class="btn btn-primary">Add New Data</button>
-		</a> -->
+<!--        tombol logout-->
 		<a href="metu.php">
 			<button class="btn btn-lg btn-primary">Log Out</button>
 		</a>
+<!--        end of tombol logout-->
 	</center>
+<!--footer-->
 	<footer class="fixed-bottom bg-dark navbar-dark">
 		<center><h2 class="navbar-brand">2017 | Arsitektur dan Jaringan Komputer</h2></center>
 	</footer>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<!--end of footer-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		 var x = document.lastModified;
     	document.getElementById("lastModified").innerHTML = x;
