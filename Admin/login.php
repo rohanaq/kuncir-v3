@@ -9,7 +9,6 @@
 
 	if($result->num_rows>0) {
 		$user = $result->fetch_assoc();
-	    //$row = mysql_fetch_assoc($result);
 	    
 	    $_SESSION['nrp'] = $user['nrp'];
 	    $_SESSION['pin'] = $user['pin'];
