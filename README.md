@@ -3,11 +3,12 @@
 ## Table of Contents
 - [About](#about)
 - [What's Included](#whats-included)
+- ~~LANJUT MHANX~~
 ## About
 Kuncir _version_ 3.0 (Kuncir v3) adalah sebuah project dari laboratorium Arsitektur dan Jaringan Komputer (AJK) yang merupakan pengembangan dari kuncir sebelumnya. Project ini bermula dengan ketetapan pihak jurusan yang memberlakukan penutupan gerbang parkir sepeda motor di jam malam namun masih banyaknya mahasiswa yang menggunakan akses gerbang parkir. Project kuncir ini ditujukan untuk mahasiswa Informatika ITS yang kerap kesusahan saat meminjamkan kunci gerbang parkir depan. Dengan pengembangan kuncir ini diharapkan dapat menyelesaikan problematika mahasiswa Informatika saat ini.
 
 ## What's Included
-Dalam 
+~~ENAKNYA KASIH APAAN YAH HEHE~~
 ```
 kuncir-v3/
 ├── Admin/
@@ -47,7 +48,5 @@ kuncir-v3/
 │   ├── nambah.php
 │   └── style.css
 ...LIST GOES ON...
-└── kuncirv3.png
-
-    
+└── kuncirv3.png 
 ```
