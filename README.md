@@ -1,2 +1,53 @@
-# kuncir-v3
 ![Kuncir v3 logo](/kuncirv3.png)
+# kuncir-v3
+## Table of Contents
+- [About](#about)
+- [What's Included](#whats-included)
+## About
+Kuncir _version_ 3.0 (Kuncir v3) adalah sebuah project dari laboratorium Arsitektur dan Jaringan Komputer (AJK) yang merupakan pengembangan dari kuncir sebelumnya. Project ini bermula dengan ketetapan pihak jurusan yang memberlakukan penutupan gerbang parkir sepeda motor di jam malam namun masih banyaknya mahasiswa yang menggunakan akses gerbang parkir. Project kuncir ini ditujukan untuk mahasiswa Informatika ITS yang kerap kesusahan saat meminjamkan kunci gerbang parkir depan. Dengan pengembangan kuncir ini diharapkan dapat menyelesaikan problematika mahasiswa Informatika saat ini.
+
+## What's Included
+Dalam 
+```
+kuncir-v3/
+├── Admin/
+│   ├── css/
+│   │   ├── bootstrap.css
+│   │   ├── bootstrap.css.map
+│   │   ├── bootstrap.min.css
+│   │   ├── bootstrap.min.css.map
+│   │   ├── bootstrap-grid.css
+│   │   ├── bootstrap-grid.css.map
+│   │   ├── bootstrap-grid.min.css
+│   │   ├── bootstrap-grid.min.css.map
+│   │   ├── bootstrap-reboot.css
+│   │   ├── bootstrap-reboot.css.map
+│   │   ├── bootstrap-reboot.min.css
+│   │   └── bootstrap-reboot.min.css.map
+│   ├── img/
+│   │   ├── bg.png
+│   │   └── bosan.png
+│   ├── js/
+│   │   ├── bootstrap.js
+│   │   ├── bootstrap.min.js
+│   │   ├── jquery-3.2.1.min.js
+│   │   └── popper.min.js
+│   ├── README.md
+│   ├── add.php
+│   ├── admin.php
+│   ├── config.php
+│   ├── delete.php
+│   ├── edit.php
+│   ├── index.php
+│   ├── kuncir.sql
+│   ├── logged.php
+│   ├── login.php
+│   ├── masuk.php
+│   ├── metu.php
+│   ├── nambah.php
+│   └── style.css
+...LIST GOES ON...
+└── kuncirv3.png
+
+    
+```
