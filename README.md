@@ -47,9 +47,6 @@ kuncir-v3/
 │   ├── metu.php
 │   ├── nambah.php
 │   └── style.css
-├── Scroll-LCD/
-│   ├── README.md
-│   └── ScrollLCD.py
 ├── API.py
 └── kuncirv3.png 
 ...LIST GOES ON...
