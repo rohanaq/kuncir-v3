@@ -58,5 +58,5 @@ Pada bagian web admin kami menggunakan framework frontend **Bootstrap** dengan b
 ### API
 Pada bagian API kami menggunakan **RESTFUL API**, **Flask**, dan **SQL ALCHEMY**. Untuk Database kami menggunakan **mySQL** (untuk jenis database lain dapat diganti dengan perubahan source code). Untuk petunjuk instalasi dan penggunaan dapat dilihat di bagian selanjutnya.
 ### KUNCIR
-Pada bagian kuncir kami menggunakan **Adafruit_Python_CharLCD** dan **RPi.GPIO**. untuk petunjuk instalasi dan penggunaan dapat dilihat di bagian selanjutnya.
+Pada bagian kuncir kami menggunakan **Adafruit_Python_CharLCD**, **RPi.GPIO**, **OpenCV2**, dan **Numpy**. untuk petunjuk instalasi dan penggunaan dapat dilihat di bagian selanjutnya.
 ## Requirements
