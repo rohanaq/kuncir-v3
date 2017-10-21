@@ -63,3 +63,9 @@ Pada bagian API kami menggunakan **RESTFUL API**, **Flask**, dan **SQL ALCHEMY**
 ### KUNCIR
 Pada bagian kuncir kami menggunakan **Adafruit_Python_CharLCD**, **RPi.GPIO**, **OpenCV2**, dan **Numpy**. untuk petunjuk instalasi dan penggunaan dapat dilihat di bagian selanjutnya.
 ## Requirements
+1. Raspberry Pi
+2. Servo
+3. LCD 16x2
+4. Jumper wire
+5. Breadboard
+6. Potentiometer
