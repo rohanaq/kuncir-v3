@@ -3,6 +3,7 @@
 ## Table of Contents
 - [About](#about)
 - [What's Included](#whats-included)
+- [Requirements](#requirement)
 - ~~LANJUT MHANX~~
 ## About
 Kuncir _version_ 3.0 (Kuncir v3) adalah sebuah project dari laboratorium Arsitektur dan Jaringan Komputer (AJK) yang merupakan pengembangan dari kuncir sebelumnya. Project ini bermula dengan ketetapan pihak jurusan yang memberlakukan penutupan gerbang parkir sepeda motor di jam malam namun masih banyaknya mahasiswa yang menggunakan akses gerbang parkir. Project kuncir ini ditujukan untuk mahasiswa Informatika ITS yang kerap kesusahan saat meminjamkan kunci gerbang parkir depan. Dengan pengembangan kuncir ini diharapkan dapat menyelesaikan problematika mahasiswa Informatika saat ini.
@@ -48,6 +49,14 @@ kuncir-v3/
 │   ├── nambah.php
 │   └── style.css
 ├── API.py
+├── kuncir.py
 └── kuncirv3.png 
 ...LIST GOES ON...
 ```
+### Admin
+Pada bagian web admin kami menggunakan framework frontend **Bootstrap** dengan bantuan popper.js
+### API
+Pada bagian API kami menggunakan **RESTFUL API**, **Flask**, dan **SQL ALCHEMY**. Untuk Database kami menggunakan **mySQL** (untuk jenis database lain dapat diganti dengan perubahan source code). Untuk petunjuk instalasi dan penggunaan dapat dilihat di bagian selanjutnya.
+### KUNCIR
+Pada bagian kuncir kami menggunakan **Adafruit_Python_CharLCD** dan **RPi.GPIO**. untuk petunjuk instalasi dan penggunaan dapat dilihat di bagian selanjutnya.
+## Requirements
