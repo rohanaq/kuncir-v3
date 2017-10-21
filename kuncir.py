@@ -15,28 +15,15 @@ import datetime
 import time
 import cv2
 import numpy
-###TAMBAHAN PENTOL
-import threading
-from threading import Thread
-###TAMBAHAN PENTOL
 
-#GPIO.setmode(GPIO.BOARD)
 GPIO.setup(4, GPIO.OUT)
 p = GPIO.PWM(4, 50)
 p.start(7.5)
-#db = MySQLdb.connect("10.151.36.5","kuncir","terserah","kuncir")
-#cursor = db.cursor()
 
 #Initialize LCD (must specify pinout and dimensions)
 lcd = Adafruit_CharLCD(rs=26, en=19, d4=13, d5=6, d6=5, d7=11, cols=16, lines=2)
 
-#gerakin lcd sobs
-def geraks():
-	while True:
-		lcd.move_right()
-		sleep(1)
-
-def check_nrp(nrp):
+def check_nrp(nrp): # Fungsi untuk mengecek NRP terdaftar ke DB melalui API
 	req = requests.get('http://192.168.36.13:8000/kuncir/%s' %nrp)
 	result = json.loads(req.text)
 	if result['status'] == "success":
@@ -44,7 +31,7 @@ def check_nrp(nrp):
 	else:
 		return False;
 
-def check_pin(nrp,pin):
+def check_pin(nrp,pin):  # Fungsi untuk mengecek PIN dari NRP terdaftar ke DB melalui API
 	req = requests.get('http://192.168.36.13:8000/kuncir/%s/%s' %(nrp,pin))
 	result = json.loads(req.text)
 	if result['status'] == "success":
@@ -52,17 +39,17 @@ def check_pin(nrp,pin):
 	else:
 		return False;
 
-def input_nrp():
+def input_nrp(): # Fungsi untuk menginput NRP
 	lcd.message("INPUT NRP")
 	nrp = raw_input("Input NRP : ")
 	return nrp
 
-def input_pin():
+def input_pin(): # Fungsi untuk menginput PIN
 	lcd.message("INPUT PIN")
 	pin = raw_input("Input PIN : ")
 	return pin
 
-def capture():
+def capture(): # Fungsi untuk mengcapture foto dari webcam
 	camera_port = 0
 	camera = cv2.VideoCapture(camera_port)
 	time.sleep(0.2)  # If you don't wait, the image will be dark
@@ -70,24 +57,19 @@ def capture():
 	return_value, buffer = cv2.imencode('.jpg', image)
 	jpg_as_text = base64.b64encode(buffer)
 	print len(jpg_as_text)
-	#cv2.imwrite("cobanih/tf_files/camera/pict.jpg", image)
-	#image = cv2.imread("cobanih/tf_files/camera/pict.jpg")
-	#file = open('cobanih/tf_files/camera/pict.jpg', 'rb')
-	#file_read = file.read()
-	#encoded = base64.encodestring(file_read)
 	del(camera)  # so that others can use the camera as soon as possible
 	return jpg_as_text
 
-def inputData(nrp, image):
+def inputData(nrp, image): # Fungsi untuk memasukan data log saat proses peminjaman kunci dengan method POST
 	now = str(datetime.datetime.now())
 	r=requests.post('http://192.168.36.13:8000/kuncir/login', data={'waktu_pinjam': now, 'peminjam_terdaftar_NRP': nrp, 'picture': image})
 
-def updateData():
+def updateData(): # Fungsi untuk menambahkan data log saat proses pengembalian kunci dengan method PUT
 	now = str(datetime.datetime.now())
 	r=requests.put('http://192.168.36.13:8000/kuncir/logout', data={'waktu_kembali' : now})
 
 try:
-	while True:
+	while True:	# Infinite loop untuk proses yang berulang - ulang
 		while True:
 			p.ChangeDutyCycle(7.5)
 			lcd.clear()
@@ -111,7 +93,6 @@ try:
 				sleep(2)
 		lcd.clear()
 		image=capture()
-		#image = base64.b64encode(capture())
 		inputData(nrp, image)
 		lcd.message("selesai\ninput data")
 		print "selesai input data"
@@ -124,10 +105,7 @@ try:
 			choice = raw_input("Apakah kunci kembali? (Y/N)")
 		       	if choice == '':
 				lcd.clear()
-##
 				lcd.message("Masukkan NRP\nuntuk verifikasi")
-				#Thread(target = geraks()).start()
-##
 				nrpCek = raw_input("Masukkan NRP\nuntuk verifikasi")
 				if nrp == nrpCek:
 					lcd.clear()
@@ -156,8 +134,6 @@ try:
 			                sleep(2)
                				p.ChangeDutyCycle(7.5)
 
-		#p.ChangeDutyCycle(7.5)
-
 except KeyboardInterrupt:
     p.ChangeDutyCycle(7.5)
     sleep(2)
@@ -165,10 +141,4 @@ except KeyboardInterrupt:
 
 finally:
     lcd.clear()
-    #p.stop()
-    #GPIO.cleanup()
-
-#	db.close()
-#	lcd.clear()
-#	cursor.close()
     GPIO.setwarnings(False)
