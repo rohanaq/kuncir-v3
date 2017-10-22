@@ -7,13 +7,18 @@
   - [API](#api)
   - [KUNCIR](#kuncir)
 - [Requirements](#requirements)
-- [How To Use](#how-to-use)
+  - [Admin](#admin)
+  - [API](#api)
+  - [KUNCIR](#kuncir)
+- [Installations](#installations)
 
 ## About
 Kuncir _version_ 3.0 (Kuncir v3) adalah sebuah project dari laboratorium Arsitektur dan Jaringan Komputer (AJK) yang merupakan pengembangan dari kuncir sebelumnya. Project ini bermula dengan ketetapan pihak jurusan yang memberlakukan penutupan gerbang parkir sepeda motor di jam malam namun masih banyaknya mahasiswa yang menggunakan akses gerbang parkir. Project kuncir ini ditujukan untuk mahasiswa Informatika ITS yang kerap kesusahan saat meminjamkan kunci gerbang parkir depan. Dengan pengembangan kuncir ini diharapkan dapat menyelesaikan problematika mahasiswa Informatika saat ini.
 
+Lain dari versi sebelumnyam Model kuncir v3 yang menyerupai _vending machine_ diharapkan untuk menjadikan kuncir lebih _user-friendly_, lebih ergonomis, dan lebih modern
+
 ## What's Included
-~~ENAKNYA KASIH APAAN YAH HEHE~~
+Kuncir ini memiliki 3 sub bagian untuk menjadi sebuah kuncir yang fungsional, yakni Admin. API, dan script kuncir
 ```
 kuncir-v3/
 ├── Admin/
@@ -57,26 +62,39 @@ kuncir-v3/
 └── kuncirv3.png 
 ```
 ### Admin
-Pada bagian web admin kami menggunakan framework frontend **Bootstrap** dengan bantuan popper.js
+Admin adalah web server yang digunakan sebagai log peminjam dan registrasi peminjam baru. Pada bagian web admin kami menggunakan framework frontend **Bootstrap** dengan bantuan popper.js
+
 ### API
-Pada bagian API kami menggunakan **RESTFUL API**, **Flask**, dan **SQL ALCHEMY**. Untuk Database kami menggunakan **mySQL** (untuk jenis database lain dapat diganti dengan perubahan source code). Untuk petunjuk instalasi dan penggunaan dapat dilihat di bagian selanjutnya.
+API digunakan sebagai jembatan perantara antara script kuncir dan database kuncir. Pada bagian API kami menggunakan **RESTFUL API**, **Flask**, dan **SQL ALCHEMY**. Untuk Database kami menggunakan **mySQL** (untuk jenis database lain dapat diganti dengan perubahan source code). Untuk petunjuk instalasi dan penggunaan dapat dilihat di bagian selanjutnya.
+
 ### KUNCIR
-Pada bagian kuncir kami menggunakan **Adafruit_Python_CharLCD**, **RPi.GPIO**, **OpenCV2**, dan **Numpy**. untuk petunjuk instalasi dan penggunaan dapat dilihat di bagian selanjutnya.
+Script KUNCIR ini digunakan sebagai script utama penggerak kuncir. Pada bagian kuncir kami menggunakan **Adafruit_Python_CharLCD**, **RPi.GPIO**, **OpenCV2**, dan **Numpy**. untuk petunjuk instalasi dan penggunaan dapat dilihat di bagian selanjutnya.
+
 ## Requirements
-1. Raspberry Pi
+1. Raspberry Pi 2
 2. Servo
 3. LCD 16x2
 4. Jumper wire
 5. Breadboard
 6. Potentiometer
 7. 1 PC sebagai server
+8. Kotak _vending machine_ (desain bebas, menyesuaikan hardware yang akan dimasukkan)
 
-## How To Use
+## Installations
+Untuk memudahkan proses instalasi, kami memecah menjadi tiga komponen utama kuncir.
+### Admin
+1. Buatlah database baru dengan cara import dari file kuncir.sql
+2. Masukkan isi folder Admin kedalam folder web server
+3. Dalam file config.php terdapat isi sebagai berikut:
+```php
+<?php
+	$databaseHost = 'localhost'; #host database
+	$databaseName = 'kuncir'; #nama database
+	$databaseUsername = 'root'; #username database
+	$databasePassword = ''; #database password
+	
+	$mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName); #connect mysqli
+ ?>
+
 ```
-INSTALASI
-1. NumPy
-2. OpenCV
-3. What else?
-```
-1. Download/Clone repository ini
-2. Terus ngapain yak?
+   Gantilah `$databaseHost`, `$databaseName`, `$databaseUsername`, `$databasePassword` dengan variable yang sesuai inginkan (contoh dalam file tersebut adalah database kuncir terdapat dalam host `localhost` dengan nama database `kuncir` dengan user `root` dan tidak memiliki password)
