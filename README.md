@@ -71,7 +71,7 @@ Pada bagian kuncir kami menggunakan **Adafruit_Python_CharLCD**, **RPi.GPIO**, *
 6. Potentiometer
 ## How To Use
 ```
-**Instalasi**
+INSTALASI
 1. NumPy
 2. OpenCV
 3. What else?
