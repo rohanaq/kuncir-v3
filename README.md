@@ -69,6 +69,8 @@ Pada bagian kuncir kami menggunakan **Adafruit_Python_CharLCD**, **RPi.GPIO**, *
 4. Jumper wire
 5. Breadboard
 6. Potentiometer
+7. 1 PC sebagai server
+
 ## How To Use
 ```
 INSTALASI
