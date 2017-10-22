@@ -7,7 +7,7 @@
   - [API](#api)
   - [KUNCIR](#kuncir)
 - [Requirements](#requirements)
-- ~~LANJUT MHANX~~
+- [How To Use] (#how-to-use)
 
 ## About
 Kuncir _version_ 3.0 (Kuncir v3) adalah sebuah project dari laboratorium Arsitektur dan Jaringan Komputer (AJK) yang merupakan pengembangan dari kuncir sebelumnya. Project ini bermula dengan ketetapan pihak jurusan yang memberlakukan penutupan gerbang parkir sepeda motor di jam malam namun masih banyaknya mahasiswa yang menggunakan akses gerbang parkir. Project kuncir ini ditujukan untuk mahasiswa Informatika ITS yang kerap kesusahan saat meminjamkan kunci gerbang parkir depan. Dengan pengembangan kuncir ini diharapkan dapat menyelesaikan problematika mahasiswa Informatika saat ini.
@@ -69,3 +69,12 @@ Pada bagian kuncir kami menggunakan **Adafruit_Python_CharLCD**, **RPi.GPIO**, *
 4. Jumper wire
 5. Breadboard
 6. Potentiometer
+## How To Use
+```
+**Instalasi**
+1. NumPy
+2. OpenCV
+3. What else?
+```
+1. Download/Clone repository ini
+2. Terus ngapain yak?
