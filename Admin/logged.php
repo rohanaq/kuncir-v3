@@ -82,9 +82,9 @@
 				<div id="border" class="border-light">
 					<h1 class="text-center text-light display-2"><b><?php echo $_SESSION['nama']; ?></b><br>has logged in</h1><br>
 					<center>
-						<a href="#">
+						<!-- <a href="#">
 							<button class="btn btn-lg btn-outline-primary">Edit Data</button>
-						</a>
+						</a> -->
 						<a href="metu.php">
 							<button class="btn btn-lg btn-outline-danger">Logout</button>
 						</a>
