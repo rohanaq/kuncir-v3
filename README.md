@@ -97,4 +97,4 @@ Untuk memudahkan proses instalasi, kami memecah menjadi tiga komponen utama kunc
  ?>
 
 ```
-   Gantilah `$databaseHost`, `$databaseName`, `$databaseUsername`, `$databasePassword` dengan variable yang sesuai inginkan (contoh dalam file tersebut adalah database kuncir terdapat dalam host `localhost` dengan nama database `kuncir` dengan user `root` dan tidak memiliki password)
+   Gantilah `$databaseHost`, `$databaseName`, `$databaseUsername`, `$databasePassword` dengan variabel yang sesuai dengan database yang sudah dibuat (contoh dalam file tersebut adalah database kuncir terdapat dalam host `localhost` dengan nama database `kuncir` dengan user `root` dan tidak memiliki password)
