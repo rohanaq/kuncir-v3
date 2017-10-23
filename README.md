@@ -15,10 +15,10 @@
 ## About
 Kuncir _version_ 3.0 (Kuncir v3) adalah sebuah project dari laboratorium Arsitektur dan Jaringan Komputer (AJK) yang merupakan pengembangan dari kuncir sebelumnya. Project ini bermula dengan ketetapan pihak jurusan yang memberlakukan penutupan gerbang parkir sepeda motor di jam malam namun masih banyaknya mahasiswa yang menggunakan akses gerbang parkir. Project kuncir ini ditujukan untuk mahasiswa Informatika ITS yang kerap kesusahan saat meminjamkan kunci gerbang parkir depan. Dengan pengembangan kuncir ini diharapkan dapat menyelesaikan problematika mahasiswa Informatika saat ini.
 
-Lain dari versi sebelumnyam Model kuncir v3 yang menyerupai _vending machine_ diharapkan untuk menjadikan kuncir lebih _user-friendly_, lebih ergonomis, dan lebih modern
+Berbeda dari versi sebelumnya, model kuncir v3 yang menyerupai _vending machine_ diharapkan untuk menjadikan kuncir lebih _user-friendly_, lebih ergonomis, dan lebih modern.
 
 ## What's Included
-Kuncir ini memiliki 3 sub bagian untuk menjadi sebuah kuncir yang fungsional, yakni Admin. API, dan script kuncir
+Kuncir memiliki 3 sub bagian untuk menjadi sebuah kuncir yang fungsional, yakni Admin, API, dan script kuncir.
 ```
 kuncir-v3/
 ├── Admin/
@@ -62,7 +62,7 @@ kuncir-v3/
 └── kuncirv3.png 
 ```
 ### Admin
-Admin adalah web server yang digunakan sebagai log peminjam dan registrasi peminjam baru. Pada bagian web admin kami menggunakan framework frontend **Bootstrap** dengan bantuan popper.js
+Admin adalah aplikasi web yang digunakan untuk menampilkan log peminjaman kunci serta registrasi peminjam baru. Pada bagian web admin kami menggunakan framework frontend **Bootstrap** dengan bantuan popper.js
 
 ### API
 API digunakan sebagai jembatan perantara antara script kuncir dan database kuncir. Pada bagian API kami menggunakan **RESTFUL API**, **Flask**, dan **SQL ALCHEMY**. Untuk Database kami menggunakan **mySQL** (untuk jenis database lain dapat diganti dengan perubahan source code). Untuk petunjuk instalasi dan penggunaan dapat dilihat di bagian selanjutnya.
