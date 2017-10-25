@@ -183,7 +183,6 @@ e = create_engine('mysql://kuncir:terserah@10.151.36.5/kuncir')  # membuat konek
 ```
 Ganti alamat IP (dalam source code ini adalah `192.168.36.5`) yang ada pada _source code_ menjadi alamat IP PC yang dijadikan penyimpanan database (server).
 
-> ####OPTIONAL
 > dalam line terakhir anda melihat kutipan code:
 > ```python
 > app.run(host='0.0.0.0', port='8000')
