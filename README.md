@@ -94,7 +94,25 @@ Untuk memudahkan proses instalasi, kami memecah menjadi tiga komponen utama kunc
 	$databasePassword = ''; #database password
 	
 	$mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName); #connect mysqli
- ?>
+?>
 
 ```
    Gantilah `$databaseHost`, `$databaseName`, `$databaseUsername`, `$databasePassword` dengan variabel yang sesuai dengan database yang sudah dibuat (contoh dalam file tersebut adalah database kuncir terdapat dalam host `localhost` dengan nama database `kuncir` dengan user `root` dan tidak memiliki password)
+### Kuncir
+```
+1. Install NumPy
+2. Install OpenCV
+3. Install RPi.GPIO
+4. Apa lagi?
+```
+  Setelah melakukan instalasi _package-package_ yang diperlukan, ganti alamat IP yang ada pada _source code_ menjadi alamat IP komputer yang dijadikan server.
+```python
+def check_nrp(nrp): # Fungsi untuk mengecek NRP terdaftar ke DB melalui API
+	req = requests.get('http://192.168.36.13:8000/kuncir/%s' %nrp)
+	result = json.loads(req.text)
+	if result['status'] == "success":
+		return True;
+	else:
+return False;
+```
+  Pada contoh fungsi _check_nrp_ di atas 192.168.36.13 merupakan IP Komputer yang dijadikan server, ubah IP ini sesuai IP Komputer yang anda jadikan server.
