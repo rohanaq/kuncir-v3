@@ -7,9 +7,9 @@
   - [API](#api)
   - [KUNCIR](#kuncir)
 - [Requirements](#requirements)
-  - [Admin](#admin)
-  - [API](#api)
-  - [KUNCIR](#kuncir)
+  - [Admin](#admin-1)
+  - [API](#api=1)
+  - [KUNCIR](#kuncir-1)
 - [Installations](#installations)
 
 ## About
@@ -98,14 +98,67 @@ Untuk memudahkan proses instalasi, kami memecah menjadi tiga komponen utama kunc
 
 ```
    Gantilah `$databaseHost`, `$databaseName`, `$databaseUsername`, `$databasePassword` dengan variabel yang sesuai dengan database yang sudah dibuat (contoh dalam file tersebut adalah database kuncir terdapat dalam host `localhost` dengan nama database `kuncir` dengan user `root` dan tidak memiliki password)
+4. Masukkan semua isi folder Admin kedalam web server (untuk kedepannya ini disebut server)
+
 ### Kuncir
+1. Install _packages_ python (**Adafruit_Python_CharLCD**, **RPi.GPIO**, **OpenCV2**, dan **Numpy**) dengan pip:
+```bash
+sudo pip install Adafruit_CharLCD
+sudo pip install RPi.GPIO
+sudo pip install cv2
+pip install --user numpy
 ```
-1. Install NumPy
-2. Install OpenCV
-3. Install RPi.GPIO
-4. Apa lagi?
+pada bagian numpy tidak direkomendasikan untuk menggunakan `sudo pip` karena akan menimbulkan error
+2. dalam file kuncir.py terdapat isi sebagai berikut:
+```python
+...
+def check_nrp(nrp): # Fungsi untuk mengecek NRP terdaftar ke DB melalui API
+	req = requests.get('http://192.168.36.13:8000/kuncir/%s' %nrp)
+	result = json.loads(req.text)
+	if result['status'] == "success":
+		return True;
+	else:
+		return False;
+
+def check_pin(nrp,pin):  # Fungsi untuk mengecek PIN dari NRP terdaftar ke DB melalui API
+	req = requests.get('http://192.168.36.13:8000/kuncir/%s/%s' %(nrp,pin))
+	result = json.loads(req.text)
+	if result['status'] == "success":
+		return True;
+	else:
+		return False;
+
+def input_nrp(): # Fungsi untuk menginput NRP
+	lcd.message("INPUT NRP")
+	nrp = raw_input("Input NRP : ")
+	return nrp
+
+def input_pin(): # Fungsi untuk menginput PIN
+	lcd.message("INPUT PIN")
+	pin = raw_input("Input PIN : ")
+	return pin
+
+def capture(): # Fungsi untuk mengcapture foto dari webcam
+	camera_port = 0
+	camera = cv2.VideoCapture(camera_port)
+	time.sleep(0.2)  # If you don't wait, the image will be dark
+	return_value, image = camera.read()
+	return_value, buffer = cv2.imencode('.jpg', image)
+	jpg_as_text = base64.b64encode(buffer)
+	print len(jpg_as_text)
+	del(camera)  # so that others can use the camera as soon as possible
+	return jpg_as_text
+
+def inputData(nrp, image): # Fungsi untuk memasukan data log saat proses peminjaman kunci dengan method POST
+	now = str(datetime.datetime.now())
+	r=requests.post('http://192.168.36.13:8000/kuncir/login', data={'waktu_pinjam': now, 'peminjam_terdaftar_NRP': nrp, 'picture': image})
+
+def updateData(): # Fungsi untuk menambahkan data log saat proses pengembalian kunci dengan method PUT
+	now = str(datetime.datetime.now())
+	r=requests.put('http://192.168.36.13:8000/kuncir/logout', data={'waktu_kembali' : now})
+...
 ```
-   Setelah melakukan instalasi _package-package_ yang diperlukan, ganti alamat IP yang ada pada _source code_ menjadi alamat IP komputer yang dijadikan server.
+Ganti alamat IP (dalam source code ini adalah `192.168.36.13:8000`) yang ada pada _source code_ menjadi alamat IP PC yang dijadikan server. Untuk memperjelas lihat kutipan code dibawah:
 ```python
 def check_nrp(nrp): # Fungsi untuk mengecek NRP terdaftar ke DB melalui API
 	req = requests.get('http://192.168.36.13:8000/kuncir/%s' %nrp)
@@ -116,10 +169,25 @@ def check_nrp(nrp): # Fungsi untuk mengecek NRP terdaftar ke DB melalui API
 return False;
 ```
    Pada contoh fungsi _check_nrp_ di atas 192.168.36.13 merupakan IP Komputer yang dijadikan server, ubah IP ini sesuai IP Komputer yang anda jadikan server.
+
 ### API
+1. Install _packages_ python (**RESTFUL API**, **Flask**, dan **SQL ALCHEMY**) dengan pip:
+```bash
+pip install flask
+pip install flask-restful
+pip install sqlalchemy
 ```
-1. Install Flask
-2. Install SQLAlchemy
-3. Apa lagi?
+2. Pada source code API.py line 5 terdapat code:
+```python
+e = create_engine('mysql://kuncir:terserah@10.151.36.5/kuncir')  # membuat koneksi ke db kuncir
 ```
-   ...
+Ganti alamat IP (dalam source code ini adalah `192.168.36.5`) yang ada pada _source code_ menjadi alamat IP PC yang dijadikan penyimpanan database (server).
+
+>####OPTIONAL
+>dalam line terakhir anda melihat kutipan code:
+```python
+app.run(host='0.0.0.0', port='8000')
+```
+>anda dapat mengganti port API (default `8000`) sesuai selera anda
+
+...
