@@ -101,15 +101,14 @@ Untuk memudahkan proses instalasi, kami memecah menjadi tiga komponen utama kunc
 4. Masukkan semua isi folder Admin kedalam web server (untuk kedepannya ini disebut server)
 
 ### Kuncir
-1. Install _packages_ python (**Adafruit_Python_CharLCD**, **RPi.GPIO**, **OpenCV2**, dan **Numpy**) dengan pip:
+1. Install _packages_ python (**Adafruit_Python_CharLCD**, **RPi.GPIO**, **OpenCV2**, dan **Numpy**) dengan pip (pada bagian numpy tidak direkomendasikan untuk menggunakan `sudo pip` karena akan menimbulkan error):
 ```bash
 sudo pip install Adafruit_CharLCD
 sudo pip install RPi.GPIO
 sudo pip install cv2
 pip install --user numpy
 ```
-pada bagian numpy tidak direkomendasikan untuk menggunakan `sudo pip` karena akan menimbulkan error
-2. dalam file kuncir.py terdapat isi sebagai berikut:
+2. Dalam file kuncir.py terdapat isi sebagai berikut:
 ```python
 ...
 def check_nrp(nrp): # Fungsi untuk mengecek NRP terdaftar ke DB melalui API
@@ -183,10 +182,10 @@ e = create_engine('mysql://kuncir:terserah@10.151.36.5/kuncir')  # membuat konek
 ```
 Ganti alamat IP (dalam source code ini adalah `192.168.36.5`) yang ada pada _source code_ menjadi alamat IP PC yang dijadikan penyimpanan database (server).
 
-> dalam line terakhir anda melihat kutipan code:
+> Pada line terakhir dapat dilihat kutipan code sebagai berikut:
 > ```python
 > app.run(host='0.0.0.0', port='8000')
 > ```
-> anda dapat mengganti port API (default `8000`) sesuai selera anda
+> Anda dapat mengganti port API (default `8000`) sesuai selera anda
 
 ...
