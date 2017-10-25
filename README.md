@@ -101,14 +101,13 @@ Untuk memudahkan proses instalasi, kami memecah menjadi tiga komponen utama kunc
 4. Masukkan semua isi folder Admin kedalam web server (untuk kedepannya ini disebut server)
 
 ### Kuncir
-1. Install _packages_ python (**Adafruit_Python_CharLCD**, **RPi.GPIO**, **OpenCV2**, dan **Numpy**) dengan pip:
+1. Install _packages_ python (**Adafruit_Python_CharLCD**, **RPi.GPIO**, **OpenCV2**, dan **Numpy**) dengan pip (pada bagian numpy tidak direkomendasikan untuk menggunakan `sudo pip` karena akan menimbulkan error):
 ```bash
 sudo pip install Adafruit_CharLCD
 sudo pip install RPi.GPIO
 sudo pip install cv2
 pip install --user numpy
 ```
-pada bagian numpy tidak direkomendasikan untuk menggunakan `sudo pip` karena akan menimbulkan error
 2. Dalam file kuncir.py terdapat isi sebagai berikut:
 ```python
 ...
