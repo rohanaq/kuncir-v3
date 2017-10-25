@@ -105,7 +105,7 @@ Untuk memudahkan proses instalasi, kami memecah menjadi tiga komponen utama kunc
 3. Install RPi.GPIO
 4. Apa lagi?
 ```
-  Setelah melakukan instalasi _package-package_ yang diperlukan, ganti alamat IP yang ada pada _source code_ menjadi alamat IP komputer yang dijadikan server.
+   Setelah melakukan instalasi _package-package_ yang diperlukan, ganti alamat IP yang ada pada _source code_ menjadi alamat IP komputer yang dijadikan server.
 ```python
 def check_nrp(nrp): # Fungsi untuk mengecek NRP terdaftar ke DB melalui API
 	req = requests.get('http://192.168.36.13:8000/kuncir/%s' %nrp)
@@ -115,4 +115,11 @@ def check_nrp(nrp): # Fungsi untuk mengecek NRP terdaftar ke DB melalui API
 	else:
 return False;
 ```
-  Pada contoh fungsi _check_nrp_ di atas 192.168.36.13 merupakan IP Komputer yang dijadikan server, ubah IP ini sesuai IP Komputer yang anda jadikan server.
+   Pada contoh fungsi _check_nrp_ di atas 192.168.36.13 merupakan IP Komputer yang dijadikan server, ubah IP ini sesuai IP Komputer yang anda jadikan server.
+### API
+```
+1. Install Flask
+2. Install SQLAlchemy
+3. Apa lagi?
+```
+   ...
