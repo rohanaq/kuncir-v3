@@ -15,7 +15,7 @@
   - [Hardware Installation](#hardware-installation)
   - [Installations](#installations-1)
 - [Usage](#usage)
-- [Credit](#credit)
+
 ## About
 Kuncir _version_ 3.0 (Kuncir v3) adalah sebuah project dari laboratorium Arsitektur dan Jaringan Komputer (AJK) yang merupakan pengembangan dari kuncir sebelumnya. Project ini bermula dengan ketetapan pihak jurusan yang memberlakukan penutupan gerbang parkir sepeda motor di jam malam namun masih banyaknya mahasiswa yang menggunakan akses gerbang parkir. Project kuncir ini ditujukan untuk mahasiswa Informatika ITS yang kerap kesusahan saat meminjamkan kunci gerbang parkir depan. Dengan pengembangan kuncir ini diharapkan dapat menyelesaikan problematika mahasiswa Informatika saat ini.
 
@@ -232,3 +232,10 @@ Alur penggunaan untuk kuncir v3 adalah sebagai berikut.
 6. Jika NRP dan PIN benar, maka kunci tersimpan dalam kotak penyimpanan kunci dan kembali ke alur ke-1
 
 > Jika NRP dan / atau PIN salah, maka kunci kembali keluar dan melakukan autentikasi ulang kembali dengan user yang seharusnya
+
+<!-- ## Credit
+Kuncir-v3 ini adalah project ketiga dan project terakhir __Open Recruitment Administrator Laboratorium Arsitektur Jaringan dan Komputer__ (selanjutnya akan disebut __Oprec Admin AJK__) yang digarap dengan cinta oleh Rohana Qudus, Aidil Abdillah NVL, dan saya selaku penulis bagian ini, bersama dengan teman - teman calon admin dan teman - teman Admin yang senantiasa membantu project ini. Saya..
+
+
+btw..
+aku kebelet boker nih. Dilanjutin kapan - kapan yah han wkwk.-->
