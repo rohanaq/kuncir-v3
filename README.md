@@ -212,7 +212,7 @@ Setelah ketiga komponen perangkat lunak (_software_) sudah ter-_setting_, maka d
 > Jika terdapat __jumper wire__ yang bertabrakan (contoh dalam kasus ini pada bagian 5v). Gunakan __Breadboard__ untuk __jumper wire__ yang bertabrakan
 >> gunakan __Breadboard__ untuk merapikan pemasangan __jumper wire__
 
-## Installation
+## Installations
 Jika kedua _hardware_ dan _software_ sudah ter-_install_, lakukan sebagai berikut.
 1. Jalankan script __API.py__.
 2. Jalankan script __kuncir.py__.
