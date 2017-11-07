@@ -11,7 +11,11 @@
   - [API](#api=1)
   - [KUNCIR](#kuncir-1)
 - [Installations](#installations)
-
+  - [Software Installation](#software-installation)
+  - [Hardware Installation](#hardware-installation)
+  - [Installations](#installations-1)
+- [Usage](#usage)
+- [Credit](#credit)
 ## About
 Kuncir _version_ 3.0 (Kuncir v3) adalah sebuah project dari laboratorium Arsitektur dan Jaringan Komputer (AJK) yang merupakan pengembangan dari kuncir sebelumnya. Project ini bermula dengan ketetapan pihak jurusan yang memberlakukan penutupan gerbang parkir sepeda motor di jam malam namun masih banyaknya mahasiswa yang menggunakan akses gerbang parkir. Project kuncir ini ditujukan untuk mahasiswa Informatika ITS yang kerap kesusahan saat meminjamkan kunci gerbang parkir depan. Dengan pengembangan kuncir ini diharapkan dapat menyelesaikan problematika mahasiswa Informatika saat ini.
 
@@ -59,7 +63,10 @@ kuncir-v3/
 │   └── style.css
 ├── API.py
 ├── kuncir.py
-└── kuncirv3.png
+├── kuncirv3.png
+├── Schema-Raspi-LCD-Potentio.jpg
+├── Schema-Raspi-LCD.jpg
+└── Schema-Raspi-Servo.png
 ```
 ### Admin
 Admin adalah aplikasi web yang digunakan untuk menampilkan log peminjaman kunci serta registrasi peminjam baru. Pada bagian web admin kami menggunakan framework frontend **Bootstrap** dengan bantuan popper.js
@@ -81,7 +88,10 @@ Script KUNCIR ini digunakan sebagai script utama penggerak kuncir. Pada bagian k
 8. Kotak _vending machine_ (desain bebas, menyesuaikan hardware yang akan dimasukkan)
 
 ## Installations
-Untuk memudahkan proses instalasi, kami memecah menjadi tiga komponen utama kuncir.
+Untuk memudahkan proses instalasi, kami memecah menjadi 2 bagian. Instalasi _Software_ dan Instalasi _Hardware_
+
+## Software Installation
+
 ### Admin
 1. Buatlah database baru dengan cara import dari file kuncir.sql
 2. Masukkan isi folder Admin kedalam folder web server
@@ -188,4 +198,37 @@ Ganti alamat IP (dalam source code ini adalah `192.168.36.5`) yang ada pada _sou
 > ```
 > Anda dapat mengganti port API (default `8000`) sesuai selera anda
 
-...
+Setelah ketiga komponen perangkat lunak (_software_) sudah ter-_setting_, maka dilanjutkan dengan pemasangan perangkat keras (_hardware_)
+
+## Hardware Installation
+1. Seluruh source code (__kuncir__ dan __API__) dimasukkan ke microSD (untuk __API__ bersifat optional karena peletakkan source code tidak harus dalam microSD) dan masukkan microSD kedalam slot pada __raspberry pi__
+2. Untuk source code __Admin__ masukkan pada pc yang digunakan untuk log peminjaman dan registrasi user baru
+3. Rangkai __jumper wire__ ke __raspberry pi__, __LCD 16x2__, dan __potensiometer__ seperti berikut.
+![LCD](/Schema-Raspi-LCD.png)
+![Potensiometer](/Schema-Raspi-LCD-Potentio.jpg)
+4. Rangkai __Servo__ ke __raspberry pi__ seperti berikut.
+![Servo](/Schema-Raspi-Servo.png)
+
+> Jika terdapat __jumper wire__ yang bertabrakan (contoh dalam kasus ini pada bagian 5v). Gunakan __Breadboard__ untuk __jumper wire__ yang bertabrakan
+>> gunakan __Breadboard__ untuk merapikan pemasangan __jumper wire__
+
+## Installation
+Jika kedua _hardware_ dan _software_ sudah ter-_install_, lakukan sebagai berikut.
+1. Jalankan script __API.py__.
+2. Jalankan script __kuncir.py__.
+3. pada webserver, jalankan __Admin__.
+4. Selamat mencoba.
+
+## Usage
+Alur penggunaan untuk kuncir v3 adalah sebagai berikut.
+1. Registrasi dengan input NRP, nomor HP, tahun angkatan, dan PIN.
+2. Masukkan NRP dan PIN pada keypad kotak kuncir.
+3. jika NRP dan PIN benar, kunci keluar
+
+> Jika NRP dan / atau PIN salah, maka user diminta mengisi NRP / PIN kembali
+
+4. Gunakan kunci dan kembalikan dengan cara memasukkan kunci kedalam lubang kunci pada kotak kuncir
+5. masukkan NRP dan PIN kembali untuk menkonfirmasikan bahwa user yang mengembalikan adalah user yang meminjam kunci tersebut
+6. Jika NRP dan PIN benar, maka kunci tersimpan dalam kotak penyimpanan kunci dan kembali ke alur ke-1
+
+> Jika NRP dan / atau PIN salah, maka kunci kembali keluar dan melakukan autentikasi ulang kembali dengan user yang seharusnya
